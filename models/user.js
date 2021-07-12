@@ -7,6 +7,7 @@ const userSchema = new Schema(
         password: { type: String, select: false },
         follows: [{ type: Schema.Types.ObjectId, ref: "Follows" }],
         art: [{ type: Schema.Types.ObjectID, ref: "Art" }],
+        tags: [{ type: Schema.Types.ObjectID, ref: "Tags" }],
     },
     { timestamps: true }
 );
