@@ -1,14 +1,14 @@
-const User = require('../models/user');
-const jwt = require('jsonwebtoken');
+const User = require("../models/user");
+const jwt = require("jsonwebtoken");
 
 module.exports = (app) => {
     // SIGN UP FORM
-    app.get("/sign-up", (req, res) => {
-        res.render("sign-up");
+    app.get("/register", (req, res) => {
+        res.render("register");
     });
 
     // SIGN UP POST
-    app.post("/sign-up", (req, res) => {
+    app.post("/register", (req, res) => {
         // Create User and JWT
         const user = new User(req.body);
 
@@ -24,4 +24,5 @@ module.exports = (app) => {
                 console.log(err.message);
                 return res.status(400).send({ err: err });
             });
-    })}
+    });
+};
