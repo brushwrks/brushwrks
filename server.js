@@ -18,4 +18,18 @@ app.use(express.urlencoded({ extended: false }));
 // app.use(express.static("public"));
 
 require("./data/brushwrks-db");
+
+// Routes
+app.get("/", (req, res) => {
+    res.render("index");
+});
+
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
+});
+
+// app.get("/posts/new", (req, res) => {
+//     res.render("posts-new");
+// });
+
 module.exports = app;
