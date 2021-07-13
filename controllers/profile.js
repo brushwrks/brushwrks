@@ -2,5 +2,5 @@ const Profile = require("../models/user");
 
 module.exports = (app) => {
     // create profile
-    app.post("/");
+    app.post("/edit/profile");
 };

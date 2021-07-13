@@ -28,8 +28,4 @@ app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
 
-// app.get("/posts/new", (req, res) => {
-//     res.render("posts-new");
-// });
-
 module.exports = app;
