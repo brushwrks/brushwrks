@@ -5,9 +5,8 @@ const userSchema = new Schema(
     {
         username: { type: String, required: true },
         password: { type: String, select: false },
-        follows: [{ type: Schema.Types.ObjectId, ref: "Follows" }],
-        art: [{ type: Schema.Types.ObjectID, ref: "Art" }],
-        tags: [{ type: Schema.Types.ObjectID, ref: "Tags" }],
+        email: { type: String, required: true },
+        profile: [{ type: Schema.ObjectId, ref: "Profile" }],
     },
     { timestamps: true }
 );
