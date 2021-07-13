@@ -1,0 +1,13 @@
+.hero-background-img{
+  background: 
+  linear-gradient(
+    rgba(0, 0, 250, 0.25), 
+    rgba(125, 250, 250, 0.45)
+  ),
+  url(https://nekacurry.github.io/brushwrks/assets/fish.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  height:80vh;
+}

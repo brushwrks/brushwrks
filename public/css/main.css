@@ -1,0 +1,8 @@
+.content-container {
+  padding-left: 180px;
+  padding-top: 20px;
+}
+
+h1, h2, h3, .navbar-brand{
+  font-family: "Josefin Sans";
+}
