@@ -18,5 +18,4 @@ app.use(express.urlencoded({ extended: false }));
 // app.use(express.static("public"));
 
 require("./data/brushwrks-db");
-
 module.exports = app;
