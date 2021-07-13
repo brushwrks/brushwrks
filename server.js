@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
+const checkAuth = require("./middleware/checkAuth");
 const port = 3000;
 
 // App Setup
@@ -10,14 +11,15 @@ const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
 app.use(cookieParser()); // Add this after you initialize express.
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(checkAuth);
-// app.use(express.static("public"));
+app.use(checkAuth);
 
 require("./data/brushwrks-db");
+require("./controllers/auth")(app);
+require("./controllers/profile")(app);
 
 // Routes
 app.get("/", (req, res) => {
