@@ -3,12 +3,23 @@ const jwt = require("jsonwebtoken");
 
 module.exports = (app) => {
     // SIGN UP FORM
-    app.get("/register", (req, res) => {
-        res.render("register");
+    app.get("/signup", (req, res) => {
+        res.render("signup");
+    });
+
+    app.get("/purge", (req, res) => {
+        User.deleteMany()
+            .then(function () {
+                console.log("Everything deleted");
+                res.redirect("/signup");
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     });
 
     // SIGN UP POST
-    app.post("/register", (req, res) => {
+    app.post("/signup", (req, res) => {
         // Create User and JWT
         const user = new User(req.body);
 
@@ -62,6 +73,7 @@ module.exports = (app) => {
                         maxAge: 900000,
                         httpOnly: true,
                     });
+                    console.log(user.username, "authenticated succesfully");
                     res.redirect("/");
                 });
             })
@@ -72,6 +84,7 @@ module.exports = (app) => {
     // Logout
     app.get("/logout", (req, res) => {
         res.clearCookie("nToken");
+        console.log(user.username, "logged out.");
         res.redirect("/");
     });
 };

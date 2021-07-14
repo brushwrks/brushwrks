@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-4 col-sm-offset-4">
-    <form action="/register" method="POST">
+    <form action="/signup" method="POST">
       <legend>Sign Up</legend>
       <div class="form-group">
         <label for="username">Username</label>
@@ -21,7 +21,7 @@
           id="password"
           placeholder="password"
         />
-      <div class="form-group">
+      {{!-- <div class="form-group">
         <label for="Email">Email</label>
         <input
           type="text"
@@ -35,20 +35,20 @@
           <legend class="col-form-label col-sm-2 pt-0">User Type</legend>
           <div class="col-sm-10">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              <input class="form-check-input" type="radio" name="gridRadios" id="artist" value="option1" checked>
               <label class="form-check-label" for="gridRadios1">
                 Artist
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <input class="form-check-input" type="radio" name="gridRadios" id="user" value="option2">
               <label class="form-check-label" for="gridRadios2">
                 Buyer
               </label>
             </div>
           </div>
         </div>
-      </fieldset>
+      </fieldset> --}}
       <div class="text-right">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
