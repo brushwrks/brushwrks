@@ -15,7 +15,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(cookieParser()); // Add this after you initialize express.
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(checkAuth);
+// app.use(checkAuth);
 
 require("./data/brushwrks-db");
 require("./controllers/auth")(app);
@@ -23,7 +23,19 @@ require("./controllers/profile")(app);
 
 // Routes
 app.get("/", (req, res) => {
-    res.render("default");
+    res.render("home");
+});
+
+app.get("/profile", (req, res) => {
+  res.render("profile");
+});
+
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.get("/signup", (req, res) => {
+  res.render("signup");
 });
 
 app.listen(port, () => {
