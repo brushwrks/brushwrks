@@ -1,15 +1,31 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcryptjs");
 
-const userSchema = new Schema(
-    {
-        username: { type: String, required: true },
-        password: { type: String, select: false },
-        email: { type: String, required: true },
-        profile: [{ type: Schema.ObjectId, ref: "Profile" }],
+const userSchema = new Schema({
+    username: { type: String, required: true },
+    password: { type: String, select: false },
+    email: { type: String, required: true },
+    avatar: { type: String, default: "" },
+    followers: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    following: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    isArtist: { type: Boolean, default: False },
+
+    artistInfo: {
+        status: { type: String },
+        art: { type: String },
+        tags: { type: String },
+        tools: { type: String },
+        twitter: { type: String },
+        instagram: { type: String },
+        patreon: { type: String },
+        commission: [{ commission_type: String, price: String }],
+        revisions: { type: String },
+        turnaround: { type: String },
+        terms: { type: String },
     },
-    { timestamps: true }
-);
+});
+
+module.exports = model("User", userSchema);
 
 // Must use function expressions here! ES6 => functions do not bind this!
 userSchema.pre("save", function (next) {
