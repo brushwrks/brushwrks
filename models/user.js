@@ -8,7 +8,7 @@ const userSchema = new Schema({
     avatar: { type: String, default: "" },
     followers: [{ type: Schema.Types.ObjectId, ref: "User" }],
     following: [{ type: Schema.Types.ObjectId, ref: "User" }],
-    isArtist: { type: Boolean, default: False },
+    isArtist: { type: Boolean, default: false },
 
     artistInfo: {
         status: { type: String },

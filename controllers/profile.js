@@ -5,11 +5,9 @@ module.exports = (app) => {
     // edit profile
     app.post("/edit/:username"),
         (req, res) => {
-            Profile.findOneAndUpdate(
-            )
-                const userId = req.user._id;
-                var profile = new Profile(req.body);
-                profile.avatar = avatarURL;
-            }
+            Profile.findOneAndUpdate();
+            const userId = req.user._id;
+            var profile = new Profile(req.body);
+            profile.avatar = avatarURL;
         };
 };
