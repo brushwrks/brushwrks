@@ -5,27 +5,26 @@ const bcrypt = require("bcryptjs");
 const userSchema = new Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, select: false },
-});
-//     email: { type: String, required: true },
-//     avatar: { type: String, default: "" },
-//     followers: [{ type: Schema.Types.ObjectId, ref: "User" }],
-//     following: [{ type: Schema.Types.ObjectId, ref: "User" }],
-//     isArtist: { type: Boolean, default: false },
+    email: { type: String, required: true, unique: true },
+    // avatar: { type: String, default: "" },
+    // followers: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    // following: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    // isArtist: { type: Boolean, default: false },
 
-//     artistInfo: {
-//         status: { type: String },
-//         art: { type: String },
-//         tags: { type: String },
-//         tools: { type: String },
-//         twitter: { type: String },
-//         instagram: { type: String },
-//         patreon: { type: String },
-//         commission: [{ commission_type: String, price: String }],
-//         revisions: { type: String },
-//         turnaround: { type: String },
-//         terms: { type: String },
-//     },
-// });
+    // artistInfo: {
+    //     status: { type: String },
+    //     art: [{ type: String }],
+    //     tags: { type: String },
+    //     tools: { type: String },
+    //     twitter: { type: String },
+    //     instagram: { type: String },
+    //     patreon: { type: String },
+    //     commission: [{ commission_type: String, price: String }],
+    //     revisions: { type: String },
+    //     turnaround: { type: String },
+    //     terms: { type: String },
+    //     },
+});
 // add datetime for artists "became an artist at"
 
 // Must use function expressions here! ES6 => functions do not bind this!
