@@ -23,7 +23,7 @@ require("./controllers/profile")(app);
 
 // Routes
 app.get("/", (req, res) => {
-    res.render("main");
+    res.render("default");
 });
 
 app.listen(port, () => {
