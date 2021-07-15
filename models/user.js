@@ -5,8 +5,8 @@ const bcrypt = require("bcryptjs");
 const userSchema = new Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, select: false },
-    email: { type: String, required: true, unique: true },
-    // avatar: { type: String, default: "" },
+    // email: { type: String, required: true, unique: true },
+    avatar: { type: String, default: "" },
     // followers: [{ type: Schema.Types.ObjectId, ref: "User" }],
     // following: [{ type: Schema.Types.ObjectId, ref: "User" }],
     // isArtist: { type: Boolean, default: false },

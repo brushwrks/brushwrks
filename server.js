@@ -14,7 +14,7 @@ app.set("view engine", "handlebars");
 app.use(express.static(__dirname + "/public"));
 app.use(cookieParser()); // Add this after you initialize express.
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(checkAuth);
 
 require("./data/brushwrks-db");
