@@ -10,15 +10,18 @@
       <div class="profile-nav col-md-3 col-lg-3 border border-dark mb-5">
           <div class="panel">
             <form>
+              <div class="text-center mt-2">
+                <button class="btn btn-success justify-content-center" type="submit" id="saveProfile">Save</button>
+              </div>
             <!-- PROFILE PICTURE / NAME -->
               <div class="user-heading round mb-0 pb-0">
                 <a href="">
                   <img src={{user.avatar}} alt="">
                 </a>
 
-                <!-- INPUT PROFILE PIC -->
+                <!-- INPUT AVATAR -->
                 <div class="input-group mb-3">
-                  <input type="url" class="form-control" placeholder="profile image url" aria-label="profile url" aria-describedby="button-addon2">
+                  <input type="url" class="form-control" id="avatar" placeholder="profile image url" aria-label="profile url" aria-describedby="button-addon2">
                 </div>
 
                 <h1 class="text-info">{{user.username}}</h1>
@@ -38,11 +41,11 @@
 
                     <!-- INPUT OPEN OR CLOSED -->
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="comOpen" id="comOpen" value="comOpen">
+                      <input class="form-check-input" type="radio" name="status" id="status" value="comOpen">
                       <label class="form-check-label" for="comOpen">OPEN</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="comClosed" id="comClosed" value="comClosed">
+                      <input class="form-check-input" type="radio" name="status" id="status" value="comClosed">
                       <label class="form-check-label" for="comClosed">CLOSED</label>
                     </div>
                   </div>
@@ -58,39 +61,39 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="twitter-addon">twitter /</span>
                       </div>
-                      <input type="text" class="form-control" id="twitter-url" aria-describedby="twitter-addon">
+                      <input type="text" class="form-control" id="twitter" aria-describedby="twitter-addon">
                     </div>
 
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="insta-addon">instagram /</span>
                       </div>
-                      <input type="text" class="form-control" id="insta-url" aria-describedby="insta-addon">
+                      <input type="text" class="form-control" id="instagram" aria-describedby="insta-addon">
                     </div>
 
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="pat-addon">patreon /</span>
                       </div>
-                      <input type="text" class="form-control" id="pat-url" aria-describedby="pat-addon">
+                      <input type="text" class="form-control" id="patreon" aria-describedby="pat-addon">
                     </div>
 
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="email-addon">mailto:</span>
                       </div>
-                      <input type="text" class="form-control" id="email-url" placeholder="example@example.com" aria-describedby="email-addon">
+                      <input type="text" class="form-control" id="email" placeholder="example@example.com" aria-describedby="email-addon">
                     </div>
                   <hr>
 
                   <p class="text-center mt-1">
                     <p><!--bio--></p>
                     
-                      <div class="form-group">
-                        <label for="bio">Change Bio</label>
-                        <textarea class="form-control" id="bio" rows="3"></textarea>
-                      </div>
-                    
+                    <div class="form-group">
+                      <label for="bio">Change Bio</label>
+                      <textarea class="form-control" id="bio" rows="3"></textarea>
+                    </div>
+                  
 
                     <br><hr>
 
@@ -100,28 +103,34 @@
 
                     <p>
                       <p class="text-warning pb-1 mb-0">Pricing</p>
-                      <strong><!--Commission type--> </strong>  $<!--Price--> <br>
+                      <p id="commission"></p>
+                      <textarea class="form-control" id="commission" rows="3"></textarea>
+                      <br>
 
                     </p><hr>
 
                     <p>
                       <p class="text-warning pb-1 mb-0">Revisions</p>
-                      <!--number--> <i><!--type or none--></i> revisions
+                      <p id="revisions"></p>
+                      <textarea class="form-control" id="revisions" rows="3"></textarea>
                     </p><hr>
 
                     <p>
                       <p class="text-warning pb-1 mb-0">Turnaround</p>
-                      <!--number--> <!--days/weeks/mo-->
+                      <p id="turnaround"></p>
+                      <textarea class="form-control" id="turnaround" rows="3"></textarea>
                     </p><hr>
 
                     <p>
                       <p class="text-info pb-1 mb-0">Terms of Service</p>
-                        <p> <!--Commission Terms--></p>
+                        <p id="terms"> <!--Commission Terms--></p>
+                        <textarea class="form-control" id="terms" rows="3"></textarea>
                     </p><hr>
 
                     <p class="text-info font-italic font-weight-bold pb-1 mb-0">Tools</p>
-                    <p class="pt-0 mt-0">
-                      <!--Tools--></p>
+                    <p class="pt-0 mt-0" id="tools"> <!--Tools--> </p>
+                    <textarea class="form-control" id="tools" rows="3"></textarea>
+                    
 
 
 
@@ -131,11 +140,21 @@
               </div>
 
 
+
             </form>
           </div>
 
       </div>
+      
       <div class="col-lg-9">
+        <form>
+          <div class="text-center" id="dynamicCheck">
+            <input class="btn btn-info justify-content-center mb-3" type="button" value="Add Art Url" onclick="createNewElement();"/>
+          </div>
+
+          <div id="newArt"></div>
+
+        </form>
         <div class="card-columns">
           <!--Repeat for number of images-->
           {{!-- {{#each user.art}} --}}
@@ -143,3 +162,16 @@
               <img class="card-img" src="<!--IMG url-->" alt="Card image">
           </div>
       </div>
+
+      <script type="text/JavaScript">
+        function createNewElement() {
+            // First create a DIV element.
+          var txtNewInputBox = document.createElement('div');
+
+            // Then add the content (a new input box) of the element.
+          txtNewInputBox.innerHTML = " <div class='input-group mb-3'> <div class='input-group-prepend'> <span class='input-group-text' id='art-addon'>http://</span> </div> <input type='text' class='form-control' id='art' aria-describedby='art-addon'> </div>";
+
+            // Finally put it where it is supposed to appear.
+          document.getElementById("newArt").appendChild(txtNewInputBox);
+        }
+        </script>
