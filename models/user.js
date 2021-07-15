@@ -17,7 +17,7 @@ const userSchema = new Schema({
     instagram: { type: String },
     patreon: { type: String },
     // commission: [{ commission_type: String, price: String }],
-    commision: { type: String },
+    commission: { type: String },
     revisions: { type: String },
     turnaround: { type: String },
     terms: { type: String },

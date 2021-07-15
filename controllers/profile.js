@@ -33,6 +33,7 @@ module.exports = (app) => {
                 { username: req.user.username },
                 {
                     avatar: req.body.avatar,
+                    bio: req.body.bio,
                     status: req.body.status,
                     art: req.body.art,
                     tags: req.body.tags,
@@ -40,7 +41,7 @@ module.exports = (app) => {
                     twitter: req.body.twitter,
                     instagram: req.body.instagram,
                     patreon: req.body.patreon,
-                    commision: req.body.commision,
+                    commission: req.body.commission,
                     revisions: req.body.revisions,
                     turnaround: req.body.turnaround,
                     terms: req.body.terms,
