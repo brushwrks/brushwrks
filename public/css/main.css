@@ -149,7 +149,6 @@ h1, h2, h3, .navbar-brand{
 
 .form-inline .input-group, .form-inline .custom-select {
   border-radius: 0.5em 0 0 0.5em;
-  border-right: 1px solid gray !important;
 }
 
 .input-group-prepend .btn, .input-group-append .btn {
