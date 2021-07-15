@@ -140,11 +140,21 @@
               </div>
 
 
+
             </form>
           </div>
 
       </div>
+      
       <div class="col-lg-9">
+        <form>
+          <div class="text-center" id="dynamicCheck">
+            <input class="btn btn-info justify-content-center mb-3" type="button" value="Add Art Url" onclick="createNewElement();"/>
+          </div>
+
+          <div id="newArt"></div>
+
+        </form>
         <div class="card-columns">
           <!--Repeat for number of images-->
           {{!-- {{#each user.art}} --}}
@@ -152,3 +162,16 @@
               <img class="card-img" src="<!--IMG url-->" alt="Card image">
           </div>
       </div>
+
+      <script type="text/JavaScript">
+        function createNewElement() {
+            // First create a DIV element.
+          var txtNewInputBox = document.createElement('div');
+
+            // Then add the content (a new input box) of the element.
+          txtNewInputBox.innerHTML = " <div class='input-group mb-3'> <div class='input-group-prepend'> <span class='input-group-text' id='art-addon'>http://</span> </div> <input type='text' class='form-control' id='art' aria-describedby='art-addon'> </div>";
+
+            // Finally put it where it is supposed to appear.
+          document.getElementById("newArt").appendChild(txtNewInputBox);
+        }
+        </script>
