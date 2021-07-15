@@ -4,6 +4,28 @@
     <div class="col-md-auto">
         <form action="/login" method="POST">
             <legend class="text-center">Login</legend>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+         <script>
+            function onSignIn(googleUser) {
+                var id_token = googleUser.getAuthResponse().id_token;
+                console.log(id_token)
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/login');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                console.log('Signed in as: ' + xhr.responseText);
+                };
+                xhr.send(JSON.stringify({token: id_token}));
+            }
+         </script>
+         <script>
+             function signOut() {
+                    var auth2 = gapi.auth2.getAuthInstance();
+                    auth2.signOut().then(function () {
+                    console.log('User signed out.');
+                     });
+                }
+                     </script>
             <div class="form-group">
                 <label for="post-username">Username</label>
                 <input

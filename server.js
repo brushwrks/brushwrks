@@ -39,6 +39,12 @@ app.get("/login", (req, res) => {
     res.render("login");
 });
 
+app.post('/login', (req, res) => {
+    let token = req.body.token;
+    
+    console.log(token);
+});
+
 app.get("/signup", (req, res) => {
     res.render("signup");
 });
