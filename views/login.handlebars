@@ -1,54 +1,71 @@
 <div class="content-container">
   <div class="container-fluid">
-      <div class="row justify-content-center mt-5">
-            <form class="d-flex flex-column justify-content-center text-center"  action="/login" method="POST">
-                <legend class="text-center">Login</legend>
-                <div class="g-signin2 mr-0" data-onsuccess="onSignIn"></div>
-            <script>
-                function onSignIn(googleUser) {
-                    var id_token = googleUser.getAuthResponse().id_token;
-                    console.log(id_token)
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('POST', '/login');
-                    xhr.setRequestHeader('Content-Type', 'application/json');
-                    xhr.onload = function() {
-                    console.log('Signed in as: ' + xhr.responseText);
-                    };
-                    xhr.send(JSON.stringify({token: id_token}));
-                }
-            </script>
-            <a href="#" onclick="signOut();">Sign out</a>
+
+    <div class="row justify-content-center mt-5">
+      <div class="col-sm-3 p-0">
+        <form action="/login" method="POST">
+          <legend class="text-center mb-3">Login</legend>
+
+            <!--Log In form-->
+            <div class="form-group">
+                {{!-- <label for="post-username">Username</label> --}}
+                <input
+                    type="text"
+                    name="username"
+                    class="form-control"
+                    id="post-username"
+                    placeholder="username"
+                />
+            </div>
+            <div class="form-group">
+                {{!-- <label for="post-password">Password</label> --}}
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    id="post-password"
+                    placeholder="password"
+                />
+            </div>
+
+            <!--Google Auth sign in-->
+            <div class="d-flex flex-row align-items-end justify-content-center mb-3">
+              <div class="g-signin2 pr-3" data-onsuccess="onSignIn"></div>
+              <script>
+                  function onSignIn(googleUser) {
+                      var id_token = googleUser.getAuthResponse().id_token;
+                      console.log(id_token)
+                      var xhr = new XMLHttpRequest();
+                      xhr.open('POST', '/login');
+                      xhr.setRequestHeader('Content-Type', 'application/json');
+                      xhr.onload = function() {
+                      console.log('Signed in as: ' + xhr.responseText);
+                      };
+                      xhr.send(JSON.stringify({token: id_token}));
+                  }
+              </script>
+            
+              <div class="text-center mt-2">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </div>
+
+            </div>
+
+            <!--Google Auth sign out-->
+            <div class="text-center">
+              <a class="text-muted" href="#" onclick="signOut();">Sign out</a>
+            </div>
             <script>
                 function signOut() {
-                        var auth2 = gapi.auth2.getAuthInstance();
-                        auth2.signOut().then(function () {
-                        console.log('User signed out.');
-                        });
-                    }
-                        </script>
-                <div class="form-group">
-                    <label for="post-username">Username</label>
-                    <input
-                        type="text"
-                        name="username"
-                        class="form-control"
-                        id="post-username"
-                        placeholder="username"
-                    />
-                </div>
-                <div class="form-group">
-                    <label for="post-password">Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        class="form-control"
-                        id="post-password"
-                        placeholder=""
-                    />
-                <div class="text-center mt-5">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
+                  var auth2 = gapi.auth2.getAuthInstance();
+                  auth2.signOut().then(function () {
+                  console.log('User signed out.');
+                  });
+                }   
+            </script>
+
+        </form>
       </div>
+    </div>
   </div>
 </div>
