@@ -16,7 +16,14 @@ module.exports = (app) => {
                 console.log(err);
             });
     });
-
+    app.get("/", (req, res) => {
+        User.find({})
+            .lean()
+            .then((users) => res.render("home", { users }))
+            .catch((err) => {
+                console.log(err.message);
+            });
+    });
     // navigate to profile update form
     app.get("/profile/edit", (req, res) => {
         console.log(req.user.username, "going to edit");

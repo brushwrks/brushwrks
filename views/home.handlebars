@@ -1,4 +1,12 @@
-<body>
+<div class="content-container">
+  <div class="container-fluid">
     <p> Hello!
+    <ul>
+    {{#each users}}
 
-</body>
+        <li><h3>{{ this.username }}<h3></li>
+        <li><img src="{{ this.avatar }}"</img></li>
+    {{/each}}
+    </ul>
+    </div>
+</div>
