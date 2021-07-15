@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 assert = require("assert");
 
-const url = "mongodb://localhost/brushwrks";
+const url = "mongodb://db.amman.dev:27017/brushwrks";
 mongoose.connect(
     url,
     {
