@@ -87,11 +87,13 @@
 
       </div>
       <div class="col-lg-9">
+        {{#each user.art}}
         <div class="card-columns">
           <!--Repeat for number of images-->
           {{!-- {{#each user.art}} --}}
           <div class="card">
-              <img class="card-img" src="<!--IMG url-->" alt="Card image">
+              <img class="card-img" src={{art}} alt="Card image">
           </div>
+        {{/each}}
       </div>
       {{/if}}
