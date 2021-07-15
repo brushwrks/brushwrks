@@ -1,43 +1,33 @@
-<nav class="bw-nav navbar navbar-expand navbar-dark bg-dark d-flex justify-content-around">
-  <div class="navbar-nav">
 
-      {{!-- <form action="/search" class="form-inline">
-      
-          <input
-              class="form-control border-0"
-              name="query"
-              type="text"
-              placeholder="Try &quot;Pixel Art&quot;"
-          />
-          <button
-              class="btn btn-success justify-content-center"
-              type="submit"
-          >Search</button>
-      </form> --}}
-
+<div class="bw-nav">
+  <nav class="navbar navbar-expand navbar-dark bg-dark w-100 d-flex justify-content-between">
+    <span></span>
+    
       <form action="/search" class="form-inline">
         <div class="input-group-prepend">
-          <select class="custom-select border-0 bg-light" id="inputGroupSelect04" aria-label="Example select with button addon">
-            <option id="users" selected value="1">Users</option>
+          <select class="custom-select text-muted" id="searchSelect" aria-label="select with button addon">
+            <option selected value="0">Select</option>
+            <option id="users" value="1">Users</option>
             <option id="tags" value="2">Tags</option>
           </select>
-
-          <input
-              class="search form-control border-0"
-              name="query"
-              type="text"
-              placeholder="Try &quot;Pixel Art&quot;"
-          />
+        
+            <input
+                class="search form-control border-0"
+                id="searchBar"
+                name="query"
+                type="text"
+                placeholder="Try &quot;Pixel Art&quot;"
+            />
 
           <div class="input-group-append">
-            <button class="btn btn-success" type="submit">Search</button>
+            <button class="btn btn-outline-success text-white" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
           </div>
         </div>
       </form>
-
-      <div class="d-flex flex-row">
-        <a class="nav-item nav-link" href="/login ">Log in</a>
-        <a class="nav-item nav-link text-info align-self-center" href="/signup">Sign up</a>
-      </div>
-  </div>
-</nav>
+    
+    <div class="d-flex flex-row">
+      <a class="nav-item nav-link p-1" href="/login ">Log in</a>
+      <a class="nav-item nav-link text-info p-1" href="/signup">Sign up</a>
+    </div>
+  </nav>
+</div>
