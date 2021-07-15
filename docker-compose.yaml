@@ -1,0 +1,32 @@
+version: "3"
+services:
+    nodejs:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: nodejs
+        container_name: brushwrks
+        env_file: .env
+        environment:
+            - SECRET=somehashvalue
+        ports:
+            - "3000:3000"
+        volumes:
+            - .:/brushwrks
+        networks:
+            - app-network
+        # command: [sh, -c, "cd /brushwrks && nodemon server.js"]
+
+    db:
+        image: mongo
+        container_name: mongodb
+        volumes:
+            - dbdata:/data/db
+        networks:
+            - app-network
+networks:
+    app-network:
+        driver: bridge
+volumes:
+    dbdata:
+    # node_modules:
