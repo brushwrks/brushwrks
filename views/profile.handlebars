@@ -13,7 +13,7 @@
             <!-- PROFILE PICTURE / NAME -->
               <div class="user-heading round mb-0 pb-0">
                 <a href="">
-                  <img src="/avatar.png" alt="">
+                  <img src="{{user.avatar}}" alt="">
                 </a>
                 <h1 class="text-info">{{user.username}}</h1>
               </div>
@@ -90,7 +90,7 @@
         <div class="card-columns">
           <!--Repeat for number of images-->
           {{!-- {{#each user.art}} --}}
-          <div class="card">
+          {{!-- <div class="card">
               <img class="card-img" src="<!--IMG url-->" alt="Card image">
-          </div>
+          </div> --}}
       </div>
