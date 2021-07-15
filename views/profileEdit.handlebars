@@ -1,0 +1,139 @@
+
+ 
+ <div class="content-container mb-5">
+
+  <div class="container-fluid">
+
+
+    <!-- ARTIST INFO -->
+    <div class="row ml-1">
+      <div class="profile-nav col-md-3 col-lg-3 border border-dark mb-5">
+          <div class="panel">
+
+            <!-- PROFILE PICTURE / NAME -->
+              <div class="user-heading round mb-0 pb-0">
+                <a href="">
+                  <img src={{user.avatar}} alt="">
+                </a>
+
+                <!-- INPUT PROFILE PIC -->
+                <div class="input-group mb-3">
+                  <input type="url" class="form-control" placeholder="profile image url" aria-label="profile url" aria-describedby="button-addon2">
+                </div>
+
+                <h1 class="text-info">{{user.username}}</h1>
+              </div>
+
+              <!-- LINKS / ADDITONAL INFO -->
+              <div class="mt-0 text-center">
+
+                <div class="d-flex flex-row justify-content-center mb-1">
+                    <p class="mr-1">STATUS</p>
+                    <p class="ml-1 mr-1">-</p>
+                    <!--if open-->
+                    <p>
+                    <p class="text-success ml-1"> {{user.status}} </p>
+                    <!--if closed-->
+                    <p class="text-danger ml-1"> {{user.status}} </p>
+
+                    <!-- INPUT OPEN OR CLOSED -->
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="comOpen" id="comOpen" value="comOpen">
+                      <label class="form-check-label" for="comOpen">OPEN</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="comClosed" id="comClosed" value="comClosed">
+                      <label class="form-check-label" for="comClosed">CLOSED</label>
+                    </div>
+                  </div>
+
+                  <!--Social links-->
+                  <!-- <a class="fab fa-twitter text-decoration-none fa-2x pr-3" href=""></a>
+                  <a class="fab fa-instagram text-decoration-none fa-2x pr-3" href=""></a>
+                  <a class="fab fa-patreon text-decoration-none fa-2x pr-3" href=""></a>
+                  <a class="fa fa-envelope text-decoration-none fa-2x pr-3" href=""></a>
+                  -->
+                  <label for="twitter-url">Contact Links (optional)</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="twitter-addon">twitter /</span>
+                      </div>
+                      <input type="text" class="form-control" id="twitter-url" aria-describedby="twitter-addon">
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="insta-addon">instagram /</span>
+                      </div>
+                      <input type="text" class="form-control" id="insta-url" aria-describedby="insta-addon">
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="pat-addon">patreon /</span>
+                      </div>
+                      <input type="text" class="form-control" id="pat-url" aria-describedby="pat-addon">
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="email-addon">mailto:</span>
+                      </div>
+                      <input type="text" class="form-control" id="email-url" placeholder="example@example.com" aria-describedby="email-addon">
+                    </div>
+                  <hr>
+
+                  <p class="text-center mt-1">
+                    <p><!--bio--></p>
+
+                    <br><hr>
+
+
+                    <p class="h5 text-info font-weight-bold pb-1 mb-0">Commission Info</p>
+                    <hr>
+
+                    <p>
+                      <p class="text-warning pb-1 mb-0">Pricing</p>
+                      <strong><!--Commission type--> </strong>  $<!--Price--> <br>
+
+                    </p><hr>
+
+                    <p>
+                      <p class="text-warning pb-1 mb-0">Revisions</p>
+                      <!--number--> <i><!--type or none--></i> revisions
+                    </p><hr>
+
+                    <p>
+                      <p class="text-warning pb-1 mb-0">Turnaround</p>
+                      <!--number--> <!--days/weeks/mo-->
+                    </p><hr>
+
+                    <p>
+                      <p class="text-info pb-1 mb-0">Terms of Service</p>
+                        <p> <!--Commission Terms--></p>
+                    </p><hr>
+
+                    <p class="text-info font-italic font-weight-bold pb-1 mb-0">Tools</p>
+                    <p class="pt-0 mt-0">
+                      <!--Tools--></p>
+
+
+
+
+                </p>
+            
+              </div>
+
+
+
+          </div>
+
+      </div>
+      <div class="col-lg-9">
+        <div class="card-columns">
+          <!--Repeat for number of images-->
+          {{!-- {{#each user.art}} --}}
+          <div class="card">
+              <img class="card-img" src="<!--IMG url-->" alt="Card image">
+          </div>
+      </div>
