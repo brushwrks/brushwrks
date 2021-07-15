@@ -27,13 +27,14 @@
       </div>
 
     <h3>Featured Users</h3>
+    <hr>
     <div class="row">
       {{#each users}}
       <div class="col-sm-2 mb-5">
         <div class="card">
           <div class="card-body">
             <img class="img-fluid mb-3" src="{{ this.avatar }}"/>
-            <h3 class="card-title text-center mb-0 pb-0">{{ this.username }}</h3>
+            <h3 class="card-title text-center text-light mb-0 pb-0">{{ this.username }}</h3>
           </div>
         </div>
       </div>
