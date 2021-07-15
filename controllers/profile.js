@@ -2,12 +2,7 @@ const Profile = require("../models/user");
 const User = require("../models/user");
 
 module.exports = (app) => {
-    // get profile
-    app.get("/profile/edit", (req, res) => {
-        console.log(req.user.username, "going to edit");
-        res.render("profileEdit");
-    });
-
+    // get a user profile
     app.get("/profile/:username", (req, res) => {
         console.log(req.user.username, "in viewing");
         console.log(req.user._id);
@@ -20,7 +15,14 @@ module.exports = (app) => {
                 console.log(err);
             });
     });
-    // edit profile
+
+    // navigate to profile update form
+    app.get("/profile/edit", (req, res) => {
+        console.log(req.user.username, "going to edit");
+        res.render("profileEdit");
+    });
+
+    // edit user profile
     app.post("/profile/edit", (req, res) => {
         // const user = req.user._id;
         console.log(req.user.username);
@@ -59,13 +61,4 @@ module.exports = (app) => {
         // console.log(req.user.username);
         res.redirect(`/profile/${user.username}`);
     });
-
-    // console.log(req.user._id, "user id");
-    // console.log(req.user.username, "username");
-    // console.log(req.user.avatar, "avatar");
-    // let userId = req.user._id;
-    // const userId = req.user._id;
-    // const profile = req.body;
-    // const found = User.findById({ _id: userId });
-    // console.log(profile);
 };
