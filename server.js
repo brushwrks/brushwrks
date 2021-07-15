@@ -4,6 +4,12 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 const checkAuth = require("./middleware/checkAuth");
+
+// Google Auth
+const {OAuth2Client} = require('google-auth-library');
+const CLIENT_ID = "645610436832-j6gfn065fkkse2g9h8rhcip57vol8jne.apps.googleusercontent.com"
+const client = new OAuth2Client(CLIENT_ID);
+
 const port = 3000;
 
 // App Setup
@@ -39,10 +45,24 @@ app.get("/login", (req, res) => {
     res.render("login");
 });
 
-app.post('/login', (req, res) => {
+app.post("/login", (req, res) => {
     let token = req.body.token;
     
     console.log(token);
+    async function verify() {
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: CLIENT_ID, 
+        });
+        const payload = ticket.getPayload();
+        const userid = payload['sub'];
+        console.log(payload)
+      }
+      verify()
+      .then(()=>{
+          res.cookie('session-token', token );
+          res.send('success');
+      }).catch(console.error);
 });
 
 app.get("/signup", (req, res) => {
