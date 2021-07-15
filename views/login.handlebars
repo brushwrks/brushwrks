@@ -1,56 +1,57 @@
-<div class="container">
-  <div class="row justify-content-md-center mt-5">
-    <div class="col col-lg-2"></div>
-    <div class="col-md-auto">
-        <form action="/login" method="POST">
-            <legend class="text-center">Login</legend>
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
-         <script>
-            function onSignIn(googleUser) {
-                var id_token = googleUser.getAuthResponse().id_token;
-                console.log(id_token)
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', '/login');
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.onload = function() {
-                console.log('Signed in as: ' + xhr.responseText);
-                };
-                xhr.send(JSON.stringify({token: id_token}));
-            }
-         </script>
-         <a href="#" onclick="signOut();">Sign out</a>
-         <script>
-             function signOut() {
-                    var auth2 = gapi.auth2.getAuthInstance();
-                    auth2.signOut().then(function () {
-                    console.log('User signed out.');
-                     });
+<div class="content-container">
+  <div class="container-fluid">
+    
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-auto">
+            <form action="/login" method="POST">
+                <legend class="text-center">Login</legend>
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <script>
+                function onSignIn(googleUser) {
+                    var id_token = googleUser.getAuthResponse().id_token;
+                    console.log(id_token)
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', '/login');
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.onload = function() {
+                    console.log('Signed in as: ' + xhr.responseText);
+                    };
+                    xhr.send(JSON.stringify({token: id_token}));
                 }
-                     </script>
-            <div class="form-group">
-                <label for="post-username">Username</label>
-                <input
-                    type="text"
-                    name="username"
-                    class="form-control"
-                    id="post-username"
-                    placeholder="username"
-                />
-            </div>
-            <div class="form-group">
-                <label for="post-password">Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    class="form-control"
-                    id="post-password"
-                    placeholder=""
-                />
-            <div class="text-center mt-5">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
-    </div>
-    <div class="col col-lg-2"></div>
+            </script>
+            <a href="#" onclick="signOut();">Sign out</a>
+            <script>
+                function signOut() {
+                        var auth2 = gapi.auth2.getAuthInstance();
+                        auth2.signOut().then(function () {
+                        console.log('User signed out.');
+                        });
+                    }
+                        </script>
+                <div class="form-group">
+                    <label for="post-username">Username</label>
+                    <input
+                        type="text"
+                        name="username"
+                        class="form-control"
+                        id="post-username"
+                        placeholder="username"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="post-password">Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        class="form-control"
+                        id="post-password"
+                        placeholder=""
+                    />
+                <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+      </div>
   </div>
 </div>
