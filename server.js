@@ -28,6 +28,7 @@ app.use(checkAuth);
 require("./data/brushwrks-db");
 require("./controllers/auth")(app);
 require("./controllers/profile")(app);
+require("./controllers/search")(app);
 
 // Routes
 app.get("/", (req, res) => {

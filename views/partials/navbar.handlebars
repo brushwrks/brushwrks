@@ -1,33 +1,56 @@
-
 <div class="bw-nav">
-  <nav class="navbar navbar-expand navbar-dark bg-dark w-100 d-flex justify-content-between">
-    <span></span>
-    
-      <form action="/search" class="form-inline">
-        <div class="input-group-prepend">
-          <select class="custom-select text-muted" id="searchSelect" aria-label="select with button addon">
-            <option selected value="0">Select</option>
-            <option id="users" value="1">Users</option>
-            <option id="tags" value="2">Tags</option>
-          </select>
-        
-            <input
-                class="search form-control border-0"
-                id="searchBar"
-                name="query"
-                type="text"
-                placeholder="Try &quot;pixel art&quot;"
-            />
+    <nav
+        class="navbar navbar-expand navbar-dark bg-dark w-100 d-flex justify-content-between"
+    >
+        <span></span>
 
-          <div class="input-group-append">
-            <button class="btn btn-outline-success text-white" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-          </div>
+        <form action="/search" method="POST" class="form-inline">
+            <div class="input-group-prepend">
+                <select
+                    class="custom-select text-muted"
+                    id="searchSelect"
+                    aria-label="select with button addon"
+                >
+                    <option selected value="0">Select</option>
+                    <option name="users" id="users" value="1">Users</option>
+                    <option name="tags" id="tags" value="2">Tags</option>
+                </select>
+
+                <input
+                    class="search form-control border-0"
+                    id="searchBar"
+                    name="query"
+                    type="text"
+                    placeholder="Try &quot;pixel art&quot;"
+                />
+
+                <div class="input-group-append">
+                    <button
+                        class="btn btn-outline-success text-white"
+                        type="submit"
+                    ><i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </form>
+
+        <div class="d-flex flex-row justify-content-between">
+            <ul class="nav navbar-nav navbar-right">
+                {{#if currentUser}}
+                    <li><a
+                            class="btn btn-outline-light border-0 mr-2"
+                            href="/logout"
+                        >Logout</a></li>
+                {{else}}
+                    <li>
+                        <a
+                            class="btn btn-outline-light border-0 mr-2"
+                            href="/login "
+                        >Log in</a>
+                    </li>
+                    <li><a class="btn btn-success" href="/signup">Sign up</a></li>
+                {{/if}}
+            </ul>
+
         </div>
-      </form>
-    
-    <div class="d-flex flex-row justify-content-between">
-      <a class="btn btn-outline-light border-0 mr-2" href="/login ">Log in</a>
-      <a class="btn btn-success" href="/signup">Sign up</a>
-    </div>
-  </nav>
+    </nav>
 </div>
