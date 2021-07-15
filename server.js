@@ -6,9 +6,9 @@ const cookieParser = require("cookie-parser");
 const checkAuth = require("./middleware/checkAuth");
 
 // Google Auth
-const {OAuth2Client} = require('google-auth-library');
-const CLIENT_ID = "645610436832-j6gfn065fkkse2g9h8rhcip57vol8jne.apps.googleusercontent.com"
-const client = new OAuth2Client(CLIENT_ID);
+// const {OAuth2Client} = require('google-auth-library');
+// const CLIENT_ID = "645610436832-j6gfn065fkkse2g9h8rhcip57vol8jne.apps.googleusercontent.com"
+// const client = new OAuth2Client(CLIENT_ID);
 
 const port = 3000;
 
