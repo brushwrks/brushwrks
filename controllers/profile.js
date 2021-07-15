@@ -21,7 +21,7 @@ module.exports = (app) => {
             });
     });
     // edit profile
-    app.post("/:username/profile/edit", (req, res) => {
+    app.post("/profile/edit", (req, res) => {
         // const user = req.user._id;
         console.log(req.user.username);
         console.log("next");
@@ -31,31 +31,34 @@ module.exports = (app) => {
                 { username: req.user.username },
                 {
                     avatar: req.body.avatar,
+                    status: req.body.status,
+                    art: req.body.art,
+                    tags: req.body.tags,
+                    tools: req.body.tools,
+                    twitter: req.body.twitter,
+                    instagram: req.body.instagram,
+                    patreon: req.body.patreon,
+                    commision: req.body.commision,
+                    revisions: req.body.revisions,
+                    turnaround: req.body.turnaround,
+                    terms: req.body.terms,
                 }
             )
                 .lean()
                 .then((result) => {
                     console.log(
-                        "success, ",
-                        req.body.avatar,
-                        "added to ",
-                        req.user.username
+                        "success, "
+                        // req.body.avatar,
+                        // "added to ",
+                        // req.user.username
                     );
                 })
                 .catch((error) => console.error(error));
         }
-        console.log(req.body.avatar);
-        console.log(req.user.username);
-        res.redirect("/profile/amman");
+        // console.log(req.body.avatar);
+        // console.log(req.user.username);
+        res.redirect(`/profile/${user.username}`);
     });
-    // .then((data) => {
-    //     if (!data) {
-    //         console.log("Cannot update");
-    //     }
-    // })
-    // .catch((err) => {
-    //     console.log(err.message);
-    // });
 
     // console.log(req.user._id, "user id");
     // console.log(req.user.username, "username");
