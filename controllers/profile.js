@@ -4,11 +4,12 @@ const User = require("../models/user");
 module.exports = (app) => {
     // get a user profile
     app.get("/profile/:username", (req, res) => {
-        console.log(req.user.username, "in viewing");
-        console.log(req.user._id);
-        const user = req.user;
+        // console.log(req.user.username, "in viewing");
+        // console.log(req.user._id);
+        // console.log(req.params.username);
+        console.log(req.params.username);
         //     console.log(user);
-        User.findById(req.user._id)
+        User.findOne({ username: req.params.username })
             .lean()
             .then((user) => res.render("profile", { user }))
             .catch((err) => {
