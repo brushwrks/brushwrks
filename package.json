@@ -23,6 +23,7 @@
         "dotenv": "^10.0.0",
         "exphbs": "^1.2.0",
         "express": "^4.17.1",
+        "express-bouncer": "^0.2.0",
         "express-handlebars": "^5.3.2",
         "express-validator": "^6.12.0",
         "google-auth-library": "^7.3.0",
