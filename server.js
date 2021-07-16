@@ -31,17 +31,17 @@ require("./controllers/profile")(app);
 require("./controllers/search")(app);
 
 // Routes
-app.get("/", (req, res) => {
-    res.render("home");
-});
+// app.get("/", (req, res) => {
+//     res.render("home");
+// });
 
-app.get("/profile", (req, res) => {
-    res.render("profile");
-});
+// app.get("/profile", (req, res) => {
+//     res.render("profile");
+// });
 
-app.get("/profileEdit", (req, res) => {
-    res.render("profileEdit");
-});
+// app.get("/profileEdit", (req, res) => {
+//     res.render("profileEdit");
+// });
 
 app.get("/login", (req, res) => {
     res.render("login");
@@ -66,10 +66,6 @@ app.post("/login", (req, res) => {
             res.send("success");
         })
         .catch(console.error);
-});
-
-app.get("/signup", (req, res) => {
-    res.render("signup");
 });
 
 app.listen(port, () => {

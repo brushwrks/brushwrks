@@ -15,7 +15,7 @@ services:
             - .:/brushwrks
         networks:
             - app-network
-        # command: [sh, -c, "cd /brushwrks && nodemon server.js"]
+        command: [sh, -c, "cd /brushwrks && nodemon server.js"]
 
     db:
         image: mongo
