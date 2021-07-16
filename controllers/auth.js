@@ -7,16 +7,16 @@ module.exports = (app) => {
         res.render("signup");
     });
 
-    app.get("/purge", (req, res) => {
-        User.deleteMany()
-            .then(function () {
-                console.log("Everything deleted");
-                res.redirect("/signup");
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    });
+    // app.get("/purge", (req, res) => {
+    //     User.deleteMany()
+    //         .then(function () {
+    //             console.log("Everything deleted");
+    //             res.redirect("/signup");
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         });
+    // });
 
     // SIGN UP POST
     app.post("/signup", (req, res) => {
@@ -73,7 +73,7 @@ module.exports = (app) => {
                         maxAge: 900000,
                         httpOnly: true,
                     });
-                    console.log(user.username, "authenticated succesfully");
+                    console.log(user.username, "authenticated successfully");
                     res.redirect("/");
                 });
             })

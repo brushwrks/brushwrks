@@ -27,6 +27,7 @@ module.exports = (app) => {
     });
     // navigate to profile update form
     app.get("/profile/edit", (req, res) => {
+        console.log(req.user);
         if (req.user) {
             console.log(req.user.username, "going to edit");
         }
@@ -36,8 +37,9 @@ module.exports = (app) => {
     // edit user profile
     app.post("/profile/edit", (req, res) => {
         console.log(req.body, "boop");
-        console.log("next");
-        console.log(req);
+        // console.log("next");
+        // console.log(req);
+
         if (req.user) {
             User.findOneAndUpdate(
                 { username: req.user.username },
@@ -63,7 +65,7 @@ module.exports = (app) => {
                 .lean()
                 .then((result) => {
                     console.log(
-                        "success, "
+                        "something was added, "
                         // req.body.avatar,
                         // "added to ",
                         // req.user.username
